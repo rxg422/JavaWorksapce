@@ -2,51 +2,51 @@ package com.kh.variable;
 
 public class A_Variable {
 	/*
-	 º¯¼ö »ç¿ë ÀÌÀ¯
-	 1. °¡µ¶¼º
-	 2. Àç»ç¿ë¼º
-	 3. À¯Áöº¸¼ö¼º 
+	 ë³€ìˆ˜ ì‚¬ìš© ì´ìœ 
+	 1. ê°€ë…ì„±
+	 2. ì¬ì‚¬ìš©ì„±
+	 3. ìœ ì§€ë³´ìˆ˜ì„± 
 	 */
 	
 	
-	// ½Ã±Ş°ú ±Ù¹«½Ã°£°ú ±Ù¹«ÀÏ¼ö¸¦ °öÇØ ¿ù±ŞÀ» °è»êÇØÁÖ´Â ¸Ş¼­µå
+	// ì‹œê¸‰ê³¼ ê·¼ë¬´ì‹œê°„ê³¼ ê·¼ë¬´ì¼ìˆ˜ë¥¼ ê³±í•´ ì›”ê¸‰ì„ ê³„ì‚°í•´ì£¼ëŠ” ë©”ì„œë“œ
 	public void printVariable() {
-		// º¯¼ö ¼±¾ğ
+		// ë³€ìˆ˜ ì„ ì–¸
 		int pay = 8500;
 		int time = 6;
 		int day = 5;
 		
-		System.out.println("=== º¯¼ö »ç¿ë Àü ===");
-		System.out.println("½Ã±Ş : 8500");
-		System.out.println("±Ù¹« ½Ã°£ : 6");
-		System.out.println("±Ù¹« ÀÏ¼ö : 5");
-		System.out.println("±èÅÂÈ¯ : " + 8500 * 6 * 5);
-		System.out.println("±èÅÂÈ¯1 : " + 8500 * 6 * 5);
-		System.out.println("±èÅÂÈ¯2 : " + 8500 * 6 * 5);
-		System.out.println("±èÅÂÈ¯3 : " + 8500 * 6 * 5);
+		System.out.println("=== ë³€ìˆ˜ ì‚¬ìš© ì „ ===");
+		System.out.println("ì‹œê¸‰ : 8500");
+		System.out.println("ê·¼ë¬´ ì‹œê°„ : 6");
+		System.out.println("ê·¼ë¬´ ì¼ìˆ˜ : 5");
+		System.out.println("ê¹€íƒœí™˜ : " + 8500 * 6 * 5);
+		System.out.println("ê¹€íƒœí™˜1 : " + 8500 * 6 * 5);
+		System.out.println("ê¹€íƒœí™˜2 : " + 8500 * 6 * 5);
+		System.out.println("ê¹€íƒœí™˜3 : " + 8500 * 6 * 5);
 		
 		System.out.println();
 		
-		System.out.println("=== º¯¼ö »ç¿ë ÈÄ ===");
-		System.out.println("±èÅÂÈ¯ : " + pay * time * day);
-		System.out.println("±èÅÂÈ¯1 : " + pay * time * day);
-		System.out.println("±èÅÂÈ¯2 : " + pay * time * day);
-		System.out.println("±èÅÂÈ¯3 : " + pay * time * day);
+		System.out.println("=== ë³€ìˆ˜ ì‚¬ìš© í›„ ===");
+		System.out.println("ê¹€íƒœí™˜ : " + pay * time * day);
+		System.out.println("ê¹€íƒœí™˜1 : " + pay * time * day);
+		System.out.println("ê¹€íƒœí™˜2 : " + pay * time * day);
+		System.out.println("ê¹€íƒœí™˜3 : " + pay * time * day);
 	}
 
 	public void declareVariable() {
-		// º¯¼ö ¼±¾ğ
+		// ë³€ìˆ˜ ì„ ì–¸
 		boolean isTrue;
 		byte bNum;
 		short sNum;
 		int iNum;
 		long lNum;
-		float fNum; // ¼Ò¼öÁ¡ 7ÀÚ¸®
-		double dNum; // ¼Ò¼öÁ¡ 15ÀÚ¸®(ÀÚ¹Ù ½Ç¼ö ´ëÇ¥ ÀÚ·áÇü)
+		float fNum; // ì†Œìˆ˜ì  7ìë¦¬
+		double dNum; // ì†Œìˆ˜ì  15ìë¦¬(ìë°” ì‹¤ìˆ˜ ëŒ€í‘œ ìë£Œí˜•)
 		char ch;
 		String str;
 		
-		// º¯¼ö ÃÊ±âÈ­
+		// ë³€ìˆ˜ ì´ˆê¸°í™”
 		isTrue = true;
 		bNum = 1;
 		sNum = 2;
@@ -54,27 +54,27 @@ public class A_Variable {
 		lNum = 8L;
 		fNum = 3.14f;
 		dNum = 3.141592d;
-		ch = '°¡';
-		str = "ÇÑ±Û";	
+		ch = 'ê°€';
+		str = "í•œê¸€";	
 	}
 	
 	public void initVariable() {
 		boolean isTrue = false;
-		int longInt = 999_999_999; // '_'¸¦ ÀÌ¿ëÇØ¼­ ÀÚ¸´¼ö ±¸ºĞ
+		int longInt = 999_999_999; // '_'ë¥¼ ì´ìš©í•´ì„œ ìë¦¿ìˆ˜ êµ¬ë¶„
 		byte bNum = 1;
 		
-		// ¿À¹öÇÃ·Î¿ì
+		// ì˜¤ë²„í”Œë¡œìš°
 		bNum += 127;
 		System.out.println(bNum);
 	}
 	
-	// »ó¼ö
+	// ìƒìˆ˜
 	public void constant() {
 		int age = 20;
 		age = 21;
 		
-		// »ó¼ö´Â ´ë¹®ÀÚ·Î ¼±¾ğ
+		// ìƒìˆ˜ëŠ” ëŒ€ë¬¸ìë¡œ ì„ ì–¸
 		final int AGE = 21;
-//		AGE = 22; // ¿À·ù : »ó¼ö¶ó º¯°æ ºÒ°¡
+//		AGE = 22; // ì˜¤ë¥˜ : ìƒìˆ˜ë¼ ë³€ê²½ ë¶ˆê°€
 	}
 }

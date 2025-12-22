@@ -15,8 +15,6 @@ public class Run {
 		op.practice6();
 		op.practice7();
 		op.practice8();
-		
-		op.sc.close();
 	}
 
 }
