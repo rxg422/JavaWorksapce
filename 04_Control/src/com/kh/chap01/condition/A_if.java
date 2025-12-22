@@ -63,4 +63,36 @@ public class A_if {
 		}
 	}
 	
+	public void method5() {
+		System.out.print("이름 : ");
+		String name = sc.next();
+		sc.nextLine();
+		System.out.print("성별(m/f) : ");
+		char gender = sc.next().charAt(0);
+		
+		String genderStr;
+		if(gender == 'm' || gender == 'M') {
+			genderStr = "남성";
+		}
+		else {
+			genderStr = "여성";
+		}
+		
+		System.out.println(name + '(' + genderStr + ')');
+	}
+	
+	public void method6() {
+		System.out.print("이름 : ");
+		String name = sc.next();
+		
+		// 자바에서 String 변수에는 주소값이 저장됨. 따라서 연산자를 사용하여 비교불가
+		// equals()를 이용하여 비교가능
+		if(name.equals("김태환")) {
+			System.out.println("일치");
+		}
+		else {
+			System.out.println("불일치");
+		}
+	}
+	
 }
