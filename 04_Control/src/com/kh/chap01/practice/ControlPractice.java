@@ -12,20 +12,23 @@ public class ControlPractice {
 		
 		switch(n) {
 		case 1 :
-			System.out.println("입력 메뉴입니다.");
+			System.out.print("입력");
 			break;
 		case 2 :
-			System.out.println("수정 메뉴입니다.");
+			System.out.print("수정");
 			break;
 		case 3 :
-			System.out.println("조회 메뉴입니다.");
+			System.out.print("조회");
 			break;
 		case 4 :
-			System.out.println("삭제 메뉴입니다.");
+			System.out.print("삭제");
 			break;
 		case 7 :
 			System.out.println("프로그램이 종료됩니다.");
+			return;
 		}
+		
+		System.out.println(" 메뉴입니다.");
 	}
 	
 	public void practice2() {
@@ -56,41 +59,43 @@ public class ControlPractice {
 		int total = (int)(kor+eng+mat);
 		float avg = total / 3.0f;
 		
-		if(kor>=40&&eng>=40&&mat>=40&&avg>=60) {
-			System.out.printf("국어 : %d\n", kor);
-			System.out.printf("수학 : %d\n", mat);
-			System.out.printf("영어 : %d\n", eng);
-			System.out.printf("합계 : %d\n", total);
-			System.out.printf("평균 : %.1f\n", avg);
-			System.out.println("축하합니다, 합격입니다!");
-		}
-		else {
+		if(!(kor>=40&&eng>=40&&mat>=40&&avg>=60)) {
 			System.out.println("불합격입니다.");
+			return;
 		}
+		
+		System.out.printf("국어 : %d\n", kor);
+		System.out.printf("수학 : %d\n", mat);
+		System.out.printf("영어 : %d\n", eng);
+		System.out.printf("합계 : %d\n", total);
+		System.out.printf("평균 : %.1f\n", avg);
+		System.out.println("축하합니다, 합격입니다!");
 	}
 	
 	public void practice4() {
 		System.out.print("1~12 사이의 정수 입력 : ");
-		int m = sc.nextInt();
+		int month = sc.nextInt();
 		
 		String season = "봄";
 		
-		switch(m) {
-		
-		case 3 : case 4 : case 5 :
+		switch(month) {
+		case 3, 4, 5 :
 			season = "봄";
 			break;
-		case 6 : case 7 : case 8 :
+		case 6, 7, 8 :
 			season = "여름";
 			break;
-		case 9 : case 10 : case 11 :
+		case 9, 10, 11 :
 			season = "가을";
 			break;
-		case 1 : case 2 : case 12 :
+		case 12, 1, 2 :
 			season = "겨울";
+			break;
+		default:
+			season = "잘못 입력된 값";
 		}
 		
-		System.out.printf("%d월은 %s입니다.", m, season);
+		System.out.printf("%d월은 %s입니다.", month, season);
 	}
 	
 	public void practice5() {
@@ -103,7 +108,7 @@ public class ControlPractice {
 		if(!id.equals("minmin")) {
 			System.out.println("아이디가 틀렸습니다.");
 		}
-		else if(!pw.equals("Min1234 ")) {
+		else if(!pw.equals("Min1234")) {
 			System.out.println("비밀번호가 틀렸습니다.");
 		}
 		else {
