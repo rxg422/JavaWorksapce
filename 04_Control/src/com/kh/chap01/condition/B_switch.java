@@ -11,24 +11,6 @@ public class B_switch {
 		System.out.print("값 : ");
 		int value = sc.nextInt();
 		
-		if(value==1) {
-			System.out.println("빨간불");
-		}
-		else if(value==2) {
-			System.out.println("파란불");
-		}
-		else if(value==3) {
-			System.out.println("초록불");
-		}
-		else {
-			System.out.println("잘못된 값을 입력하였습니다.");
-		}
-	}
-	
-	public void method2() {
-		System.out.print("값 : ");
-		int value = sc.nextInt();
-		
 		switch(value) {
 		case 1:
 			System.out.println("빨간불");
@@ -44,8 +26,26 @@ public class B_switch {
 		}
 	}
 	
-	public void method3() {
+	public void method2() {
+		System.out.print("과일 : ");
+		String fruit = sc.next();
 		
+		int price = 0;
+		switch(fruit) {
+		case "사과" :
+			price = 1000;
+			break;
+		case "망고" : case "복숭아" :
+			price = 5000;
+			break;
+		case "바나나" :
+			price = 2000;
+			break;
+		default :
+			System.out.println("해당 과일을 구매할 수 없습니다.");
+		}
+		
+		System.out.printf("가격은 %d원입니다.", price);
 	}
 	
 }
