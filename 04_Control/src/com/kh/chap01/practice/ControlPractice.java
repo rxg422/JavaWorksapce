@@ -118,15 +118,15 @@ public class ControlPractice {
 	
 	public void practice6() {
 		System.out.println("권한을 확인하고자 하는 회원 등급 : ");
-		String user = sc.next();
+		String grade = sc.next();
 		
-		switch(user) {
+		switch(grade) {
 		case "관리자" :
-			System.out.print("회원관리 게시글관리");
+			System.out.print("회원 관리, 게시글 관리,");
 		case "회원" :
-			System.out.print("게시글작성 댓글작성");
+			System.out.print("게시글 작성, 댓글 작성,");
 		case "비회원" :
-			System.out.print("게시글조회");
+			System.out.print("게시글 조회");
 		}
 	}
 	
@@ -137,6 +137,8 @@ public class ControlPractice {
 		double kg = sc.nextDouble();
 		
 		double bmi = kg / (m * m);
+		
+		System.out.printf("BMI : %.2f\n", bmi);
 		
 		if(bmi < 18.5) {
 			System.out.println("저체중");
@@ -162,6 +164,11 @@ public class ControlPractice {
 		
 		double result = 0;
 		
+		if(n1<=0 || n2<=0) {
+			System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
+			return;
+		}
+		
 		switch(p) {
 		case '+' :
 			result = n1 + n2;
@@ -178,6 +185,9 @@ public class ControlPractice {
 		case '%' :
 			result = n1 % n2;
 			break;
+		default :
+			System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
+			return;
 		}
 		
 		System.out.printf("%d %c %d = %f", n1, p, n2, result);
@@ -196,15 +206,15 @@ public class ControlPractice {
 		double total = (mScore * 0.2) + (lScore * 0.3) + (hScore * 0.3) + cnt;
 		
 		System.out.println("================= 결과 =================");
+		System.out.printf("중간 고사 점수(20) : %.1f\r\n기말 고사 점수(30) : %.1f\r\n과제 점수 (30) : %.1f\r\n출석 점수 (20) : %.1f\r\n총점 : %.1f\n", (mScore * 0.2), (lScore * 0.3), (hScore * 0.3), (double)cnt, (total));
 		
-		if(cnt < (20*0.7)) {
+		if(cnt <= 14) {
 			System.out.printf("Fail [출석 회수 부족 (%d/20)]\n", cnt);
 		}
 		else if(total < 70) {
 			System.out.println("Fail");
 		}
 		else {
-			System.out.printf("중간 고사 점수(20) : %.1f\r\n기말 고사 점수(30) : %.1f\r\n과제 점수 (30) : %.1f\r\n출석 점수 (20) : %.1f\r\n총점 : %.1f\n", (mScore * 0.2), (lScore * 0.3), (hScore * 0.3), (double)cnt, (total));
 			System.out.println("Pass");
 		}
 	}
