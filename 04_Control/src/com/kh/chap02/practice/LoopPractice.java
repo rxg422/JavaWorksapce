@@ -337,6 +337,31 @@ public class LoopPractice {
 		System.out.printf("\n2부터 %d까지 소수의 개수는 %d개입니다.\n", n, dCnt);
 	}
 	
+	public void practice11_1() {
+		System.out.print("숫자 : ");
+		int n = sc.nextInt();
+		int dCnt = 0;
+		
+		if(n<2) {
+			System.out.println("잘못 입력하셨습니다.");
+			return;
+		}
+		
+		loop:
+		for(int i=2; i<=n; i++) {
+			for(int j=2; j<i; j++) {
+				if(i%j==0) {
+					continue loop;
+				}
+			}
+			
+			System.out.printf("%d ", i);
+			dCnt++;
+		}
+		
+		System.out.printf("\n2부터 %d까지 소수의 개수는 %d개입니다.\n", n, dCnt);
+	}
+	
 	public void practice12() {
 		System.out.print("자연수 하나를 입력하세요 : ");
 		int n = sc.nextInt();
