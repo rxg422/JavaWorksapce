@@ -55,12 +55,21 @@ public class A_for {
 	}
 	
 	public void method7() {
-		for(int i=1; i<=9; i++) {
+		for(int i=2; i<=9; i++) {
 			System.out.printf("%d단\n", i);
 			for(int j=1; j<=9; j++) {
 				System.out.printf("%d*%d=%d ", i, j, i*j);
 			}
 			System.out.println("\n");
+		}
+	}
+	
+	public void method8() {
+		for(int i=0; i<5; i++) {
+			for(int j=0; j<5; j++) {
+				System.out.print('*');
+			}
+			System.out.println();
 		}
 	}
 	

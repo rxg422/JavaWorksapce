@@ -271,4 +271,24 @@ public class ControlPractice {
 
 	}
 	
+	public void practice12() {
+		System.out.print("비밀번호 입력(1000~9999) : ");
+		int pw = sc.nextInt();
+		
+		int pw1 = pw / 1000;
+		int pw2 = pw / 100 % 10;
+		int pw3 = pw / 10 % 10;
+		int pw4 = pw % 10;
+		
+		if(pw1 >= 10 || pw1 == 0) {
+			System.out.println("자리수 안맞음");
+		}
+		else if(pw1==pw2 || pw1==pw3 || pw1==pw4 || pw2==pw3 || pw2==pw4 || pw3==pw4) {
+			System.out.println("실패");
+		}
+		else {
+			System.out.println("성공");
+		}
+	}
+	
 }
