@@ -4,6 +4,7 @@ public class Run {
 
 	public static void main(String[] args) {
 		A_for a = new A_for();
+		B_while b = new B_while();
 		
 //		a.method1();
 //		a.method2();
@@ -12,7 +13,10 @@ public class Run {
 //		a.method5();
 //		a.method6();
 //		a.method7();
-		a.method8();
+//		a.method8();
+//		a.method9();
+		
+		b.method1();
 		
 		a.sc.close();
 	}

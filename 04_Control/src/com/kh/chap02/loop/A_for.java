@@ -65,9 +65,38 @@ public class A_for {
 	}
 	
 	public void method8() {
-		for(int i=0; i<5; i++) {
+//		System.out.println("*****\n*****\n*****\n*****\n*****\n");
+		
+		for(int i=0; i<4; i++) {
 			for(int j=0; j<5; j++) {
 				System.out.print('*');
+			}
+			System.out.println();
+		}
+	}
+	
+	public void method9() {
+		for(int i=0; i<4; i++) {
+			for(int j=0; j<i; j++) {
+				System.out.print("*");
+			}
+			System.out.print(i+1);
+			for(int k=0; k<4-i-1; k++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		
+		System.out.println();
+		
+		for(int i=0; i<4; i++) {
+			for(int j=0; j<4; j++) {
+				if(j==i) {
+					System.out.print(i+1);
+				}
+				else {
+					System.out.print("*");
+				}
 			}
 			System.out.println();
 		}
