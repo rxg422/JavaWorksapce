@@ -28,6 +28,26 @@ public class LoopPractice {
 		
 	}
 	
+	public void practice1_1(){
+		
+		System.out.print("1이상의 숫자를 입력하세요 : ");
+		int n = sc.nextInt();
+		
+		if(n<1) {
+			System.out.println("1 이상의 숫자를 입력해주세요.");
+			practice1_1();
+			return;
+		}
+		
+		for(int i=0; i<n; i++) {
+			System.out.printf("%2d ", i+1);
+			if((i+1) % 10 == 0) {
+				System.out.println();
+			}
+		}
+		
+	}
+	
 	public void practice2() {
 		while(true) {
 			System.out.print("1이상의 숫자를 입력하세요 : ");
@@ -40,12 +60,30 @@ public class LoopPractice {
 			
 			for(int i=n; i>0; i--) {
 				System.out.printf("%2d ", i);
-				if(i % 10 == 0) {
+				if(i % 10 == 1) {
 					System.out.println();
 				}
 			}
 			
 			break;
+		}
+	}
+	
+	public void practice2_1() {
+		System.out.print("1이상의 숫자를 입력하세요 : ");
+		int n = sc.nextInt();
+		
+		if(n<1) {
+			System.out.println("1 이상의 숫자를 입력해주세요.");
+			practice2_1();
+			return;
+		}
+		
+		for(int i=n; i>0; i--) {
+			System.out.printf("%2d ", i);
+			if(i % 10 == 1) {
+				System.out.println();
+			}
 		}
 	}
 	
@@ -56,9 +94,13 @@ public class LoopPractice {
 		
 		for(int i=0; i<n; i++) {
 			sum += (i+1);
+			System.out.print(i+1);
+			if(i+1 != n) {
+				System.out.print(" + ");
+			}
 		}
 		
-		System.out.printf("sum : %d\n", sum);
+		System.out.printf(" = %d\n", sum);
 	}
 	
 	public void practice4() {
@@ -92,6 +134,25 @@ public class LoopPractice {
 		}
 	}
 	
+	public void practice4_1() {
+		int n1, n2;
+		
+		System.out.print("첫 번쨰 숫자 : ");
+		n1 = sc.nextInt();
+		System.out.print("두 번쨰 숫자 : ");
+		n2 = sc.nextInt();
+		
+		if(n1<1 || n2<1) {
+			System.out.println("1 이상의 숫자를 입력해주세요.");
+			practice4_1();
+			return;
+		}
+		
+		for(int i=Math.min(n1, n2); i<=Math.max(n1, n2); i++) {
+			System.out.printf("%2d ", i);
+		}
+	}
+	
 	public void practice5() {
 		int n;
 		while(true) {
@@ -100,7 +161,7 @@ public class LoopPractice {
 			
 			if(n>=10) {
 				System.out.println("9이하의 숫자만 입력해주세요.");
-				break;
+				continue;
 			}
 			
 			for(int i=n; i<=9; i++) {
@@ -110,6 +171,29 @@ public class LoopPractice {
 				}
 				System.out.println("\n");
 			}
+			
+			break;
+		}
+	}
+	
+	public void practice5_1() {
+		int n;
+		
+		System.out.print("숫자 : ");
+		n = sc.nextInt();
+		
+		if(n>=10) {
+			System.out.println("9이하의 숫자만 입력해주세요.");
+			practice5_1();
+			return;
+		}
+		
+		for(int i=n; i<=9; i++) {
+			System.out.printf("%d단\n", i);
+			for(int j=1; j<=9; j++) {
+				System.out.printf("%d*%d=%d ", i, j, i*j);
+			}
+			System.out.println("\n");
 		}
 	}
 	

@@ -5,12 +5,16 @@ public class Run {
 	public static void main(String[] args) {
 		LoopPractice lp = new LoopPractice();
 		
-		lp.practice1();
+//		lp.practice1();
+//		lp.practice1_1();
 //		lp.practice2();
+//		lp.practice2_1();
 //		lp.practice3();
 //		lp.practice4();
+//		lp.practice4_1();		
 //		lp.practice5();
-//		lp.practice6();
+//		lp.practice5_1();
+		lp.practice6();
 //		lp.practice7();
 //		lp.practice8();
 //		lp.practice9();
