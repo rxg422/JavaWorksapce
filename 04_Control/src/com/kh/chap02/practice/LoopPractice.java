@@ -212,8 +212,8 @@ public class LoopPractice {
 	public void practice7() {
 		int n1, n2, result;
 		String str;
+		
 		while(true) {
-			
 			System.out.print("연산자(+, -, *, /, %) : ");
 			str = sc.nextLine();
 			
@@ -232,10 +232,9 @@ public class LoopPractice {
 			System.out.print("정수2 : ");
 			n2 = sc.nextInt();
 			
-
 			sc.nextLine();
 			
-			if((str.equals("/") || str.equals("/")) && n2 == 0) {
+			if((str.equals("/") || str.equals("%")) && n2 == 0) {
 				System.out.println("0으로 나눌 수 없습니다. 다시 입력해주세요.");
 				continue;
 			}
@@ -259,7 +258,6 @@ public class LoopPractice {
 			default :
 				result = 0;
 			}
-			
 			
 			System.out.printf("%d %s %d = %d\n", n1, str, n2, result);
 		}
@@ -347,26 +345,26 @@ public class LoopPractice {
 			return;
 		}
 		
-		loop:
 		for(int i=2; i<=n; i++) {
-			for(int j=2; j<i; j++) {
+			for(int j=2; j<=i; j++) {
+				if(i==j) {
+					System.out.printf("%d ", i);
+					dCnt++;
+				}
 				if(i%j==0) {
-					continue loop;
+					break;
 				}
 			}
-			
-			System.out.printf("%d ", i);
-			dCnt++;
 		}
 		
 		System.out.printf("\n2부터 %d까지 소수의 개수는 %d개입니다.\n", n, dCnt);
 	}
 	
 	public void practice12() {
-		System.out.print("자연수 하나를 입력하세요 : ");
-		int n = sc.nextInt();
+		int n, cnt = 0;
 		
-		int cnt = 0;
+		System.out.print("자연수 하나를 입력하세요 : ");
+		n = sc.nextInt();
 		
 		for(int i=1; i<=n; i++) {
 			if(i%2==0 || i%3==0) {
