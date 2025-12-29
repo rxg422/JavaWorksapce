@@ -6,8 +6,8 @@ public class Run {
 		UpAndDown ud = new UpAndDown();
 		RockPaperScissors rps = new RockPaperScissors();
 		
-//		ud.upDown();
-		rps.rps();
+		ud.upDown();
+//		rps.rps();
 	}
 
 }

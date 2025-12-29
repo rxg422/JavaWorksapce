@@ -1,6 +1,5 @@
 package com.kh.comp;
 
-//import java.util.Random;
 import java.util.Scanner;
 
 public class RockPaperScissors {
@@ -9,13 +8,7 @@ public class RockPaperScissors {
 	
 	public void rps() {
 		String input, name;
-		int com, result=0, wCnt=0, lCnt=0, sCnt=0;
-//		Random rand = new Random();
-		
-		// 가위 바위 보
-		// 0  1  2
-		// 0 < 1 < 2 < 0
-		
+		int com, result=0, wCnt=0, lCnt=0, dCnt=0;
 		
 		System.out.print("당신의 이름을 입력해주세요 : ");
 		name = sc.next();
@@ -27,12 +20,10 @@ public class RockPaperScissors {
 			System.out.print("가위바위보 : ");
 			input = sc.next();
 			
-//			rand.setSeed(System.currentTimeMillis());
-//			com = rand.nextInt(3);
 			com = (int) (Math.random() * 3);
 			
 			if(input.equals("exit")) {
-				System.out.printf("%d전 %d승 %d무 %d패", wCnt+lCnt+sCnt, wCnt, sCnt, lCnt);
+				System.out.printf("%d전 %d승 %d무 %d패", wCnt+lCnt+dCnt, wCnt, dCnt, lCnt);
 				return;
 			}
 			
@@ -64,7 +55,7 @@ public class RockPaperScissors {
 				break;
 			default:
 				System.out.println("비겼습니다.");
-				sCnt++;
+				dCnt++;
 			}
 			
 			System.out.println();
