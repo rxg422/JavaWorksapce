@@ -111,7 +111,7 @@ public class B_arrayCopy {
 		// 원본 배열과 동일하게 복사(크기, 값)
 		copy = origin.clone();
 		
-		System.out.println("=========[copyOf 이용한 깊은 복사]=========");
+		System.out.println("=========[clone 이용한 깊은 복사]=========");
 		
 		System.out.print("원본 배열 : ");
 		System.out.print(Arrays.toString(origin));

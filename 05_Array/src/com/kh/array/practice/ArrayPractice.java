@@ -112,14 +112,20 @@ public class ArrayPractice {
 	
 	public void practice07() {
 		int cnt = 0;
+		char arr[], ch;
+		
 		// 1. 문자열을 입력받아
 		System.out.print("문자열 : ");
 		String str = sc.nextLine();
+		
 		// 2. 문자를 배열에 넣고
-		char arr[] = str.toCharArray();
+		arr = str.toCharArray();
+		
 		// 3. 검색할 문자가
 		System.out.print("문자 : ");
-		char ch = sc.next().charAt(0);
+		ch = sc.next().charAt(0);
+		
+		System.out.printf("%s에 %c가 존재하는 위치(인덱스) : ", str, ch);
 		// 4. 몇번째 인덱스에 있는지 몇개 있는지 출력
 		for(int i=0; i<arr.length; i++) {
 			if(arr[i] == ch) {
@@ -127,7 +133,7 @@ public class ArrayPractice {
 				cnt++;
 			}
 		}
-		System.out.printf("\n%c 개수 : %d", ch, cnt);
+		System.out.printf("\n%c의 개수 : %d개", ch, cnt);
 	}
 	
 	public void practice08() {
@@ -144,6 +150,17 @@ public class ArrayPractice {
 				System.out.printf("%c", idArr[i]);
 			}
 		}
+		
+		System.out.println();
+		
+		for(int i=0; i<id.length(); i++) {
+			if(i>7) {
+				System.out.print("*");
+			}
+			else {
+				System.out.printf("%c", id.charAt(i));
+			}
+		}
 	}
 	
 	public void practice09() {
@@ -155,7 +172,21 @@ public class ArrayPractice {
 		
 		System.out.println(Arrays.toString(arr));
 		Arrays.sort(arr);
-		System.out.printf("최댓값 : %d\n최솟값 : %d", arr[arr.length-1], arr[0]);
+		System.out.printf("최댓값 : %d\n최솟값 : %d\n", arr[arr.length-1], arr[0]);
+		
+		int max = arr[0], min = arr[0];
+		
+		for(int i=0; i<arr.length; i++) {
+			if(max < arr[i]) {
+				max = arr[i];
+			}
+			
+			if(min > arr[i]) {
+				min = arr[i];
+			}
+		}
+		
+		System.out.printf("최댓값 : %d\n최솟값 : %d\n", max, min);
 	}
 	
 	public void practice10() {
@@ -168,26 +199,28 @@ public class ArrayPractice {
 			for(int j=0; j<=i; j++) {
 				if(i==j) {
 					arr[i] = rand;
-					System.out.printf("%d ", arr[i]);
+					break;
 				}
-				else if(arr[j] == rand) {
+				
+				if(arr[j] == rand) {
 					i--;
 					break;
 				}
 			}
-			
 		}
+		
+		System.out.println(Arrays.toString(arr));
 	}
 	
 	public void practice11() {
 		int n;
 		int arr[];
-		int tmp;
+		int mid;
 		
 		while(true) {
 			System.out.print("정수 : ");
 			n = sc.nextInt();
-			tmp = n/2+1;
+			mid = n/2+1;
 			
 			arr = new int[n];
 			
@@ -197,15 +230,15 @@ public class ArrayPractice {
 			}
 			
 			for(int i=0; i<n; i++) {
-				if(i<=tmp-1) {
+				if(i<mid) {
 					arr[i] = i+1;					
 				}
-				if(i>tmp-1) {
-					arr[i] = --tmp;
+				if(i>=mid) {
+					arr[i] = --mid;
 				}
-				System.out.printf("%d ", arr[i]);
 			}
 			
+			System.out.println(Arrays.toString(arr));
 			break;
 		}
 	}
@@ -215,10 +248,7 @@ public class ArrayPractice {
 		int n = sc.nextInt();
 		char q;
 		int index = 0;
-		
 		String arr[] = new String[n];
-		
-		
 		
 		while(true) {
 			sc.nextLine();
