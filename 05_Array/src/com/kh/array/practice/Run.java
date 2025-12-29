@@ -15,8 +15,8 @@ public class Run {
 //		ap.practice08();
 //		ap.practice09();
 //		ap.practice10();
-		ap.practice11();
-//		ap.practice12();
+//		ap.practice11();
+		ap.practice12();
 	}
 
 }

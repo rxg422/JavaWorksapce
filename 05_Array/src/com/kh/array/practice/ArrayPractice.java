@@ -244,26 +244,28 @@ public class ArrayPractice {
 	}
 	
 	public void practice12() {
-		System.out.println("배열의 크기를 입력하세요 : ");
-		int n = sc.nextInt();
+		int n, i = 0;
+		String arr[];
 		char q;
-		int index = 0;
-		String arr[] = new String[n];
+		
+		System.out.print("배열의 크기를 입력하세요 : ");
+		n = sc.nextInt();
+		
+		arr = new String[n];
 		
 		while(true) {
 			sc.nextLine();
 			
-			for(int i=index; i<index+n; i++) {
+			for(; i<arr.length; i++) {
 				System.out.printf("%d번째 문자열 : ", i+1);
 				arr[i] = sc.nextLine();
 			}
 			
-			index = arr.length;
-			
 			System.out.print("값을 더 입력하시겠습니까?(Y/N) : ");
 			q = sc.next().charAt(0);
 			
-			if(q=='N'|| q=='n') {
+			if(!(q=='Y'|| q=='y')) {
+				System.out.println("잘못된 값 또는 N 입력으로 프로그램을 종료합니다.\n");
 				System.out.println(Arrays.toString(arr));
 				return;
 			}
