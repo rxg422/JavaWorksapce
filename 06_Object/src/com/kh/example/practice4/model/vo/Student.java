@@ -7,12 +7,16 @@ public class Student {
 	private double height;
 	private char gender;
 	
-	public Student() {
+	{
 		grade = 3;
 		classroom = 8;
 		name = "Robert";
 		height = 183.2;
 		gender = 'M';
+	}
+	
+	public Student() {
+		
 	}
 	
 	public void information() {

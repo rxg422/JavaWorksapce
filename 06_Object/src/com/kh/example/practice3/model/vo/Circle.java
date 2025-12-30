@@ -6,7 +6,7 @@ public class Circle {
 	private static int radius = 1;
 	
 	public Circle() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public void incrementRadius() {
