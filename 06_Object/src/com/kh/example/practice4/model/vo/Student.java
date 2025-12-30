@@ -7,8 +7,11 @@ public class Student {
 	private double height;
 	private char gender;
 	
-	{
+	static {
 		grade = 3;
+	}
+	
+	{
 		classroom = 8;
 		name = "Robert";
 		height = 183.2;
