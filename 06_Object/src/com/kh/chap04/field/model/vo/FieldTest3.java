@@ -9,4 +9,9 @@ public class FieldTest3 {
 		System.out.println("hi!");
 	}
 	
+	private int global; 
+	{
+		global = 50;
+	}
+	
 }

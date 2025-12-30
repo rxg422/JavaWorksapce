@@ -2,7 +2,16 @@ package com.kh.chap04.field.model.vo;
 
 public class FieldTest1 {
 	
-	private int global; // 전역 변수
+	private int global; { // 전역 변수
+
+		global = 50;
+	}
+	
+	public static int num;
+	// static 변수 초기화 블럭
+	static {
+		num = 55;
+	}
 	
 	public void test(int n) { // 매개 변수
 		int local; // 지역 변수
