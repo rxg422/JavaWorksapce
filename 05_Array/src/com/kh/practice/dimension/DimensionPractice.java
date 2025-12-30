@@ -128,7 +128,56 @@ public class DimensionPractice {
 	}
 	
 	public void practice08() {
+		String students[] = {"강건강", "남나나", "도대담", "류라라", "문미미", "박보배", "송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하"};
+		String seat1[][] = new String[3][2];
+		String seat2[][] = new String[3][2];
+		int x=0, y=0;
 		
+		for(int i=0; i<3; i++) {
+			System.arraycopy(students, i*2, seat1[i], 0, 2);
+			System.arraycopy(students, 6+i*2, seat2[i], 0, 2);
+		}
+
+		System.out.println("== 1분단 ==");
+		for(int i=0; i<3; i++) {
+			System.out.println(Arrays.toString(seat1[i]));
+		}
+		
+		System.out.println("\n== 2분단 ==");
+		for(int i=0; i<3; i++) {
+			System.out.println(Arrays.toString(seat2[i]));
+		}
+	}
+	
+	public void practice09() {
+		Scanner sc = new Scanner(System.in);
+		
+		String seat1[][] = {{"강건강", "남나나"}, {"도대담", "류라라"}, {"문미미", "박보배"}};
+		String seat2[][] = {{"송성실", "윤예의"}, {"진재주", "차천축"}, {"피풍표", "홍하하"}};
+		
+		System.out.println("== 1분단 ==");
+		for(int i=0; i<3; i++) {
+			System.out.println(Arrays.toString(seat1[i]));
+		}
+		
+		System.out.println("== 2분단 ==");
+		for(int i=0; i<3; i++) {
+			System.out.println(Arrays.toString(seat2[i]));
+		}
+		
+		System.out.print("\n검색할 학생의 이름을 입력하세요 : ");
+		String name = sc.next();
+		
+		for(int i=0; i<seat1.length; i++) {
+			for(int j=0; j<seat1[i].length; j++) {
+				if(seat1[i][j].equals(name)) {
+					System.out.printf("검색하신 %s 학생은 1분단 %s번째 줄 %s에 있습니다.", name, (i==0 ? "첫" : i==1 ? "두" : "세"), (j==0 ? "왼쪽" : "오룬쪽"));
+				}
+				if(seat2[i][j].equals(name)) {
+					System.out.printf("검색하신 %s 학생은 2분단 %s번째 줄 %s에 있습니다.", name, (i==0 ? "첫" : i==1 ? "두" : "세"), (j==0 ? "왼쪽" : "오룬쪽"));
+				}
+			}
+		}
 	}
 	
 }
