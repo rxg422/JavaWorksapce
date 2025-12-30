@@ -45,14 +45,22 @@ public class DimensionPractice {
 		
 		int n = 16;
 		for(int i=0; i<arr.length-1; i++) {
-			for(int j=0; j<arr[i].length; j++) {
+			for(int j=0; j<arr[i].length-1; j++) {
 				arr[i][j] = (int)(Math.random() * 10 + 1);
-				arr[3][j] += arr[i][j];
 				
+				arr[arr.length-1][j] += arr[i][j];
+				arr[i][arr[i].length-1] += arr[i][j];
+				
+				arr[arr.length-1][arr[i].length-1] += arr[i][j] * 2;
 			}
-			System.out.println(Arrays.toString(arr[i]));
 		}
-		System.out.println(Arrays.toString(arr[3]));
+		
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr[i].length; j++) {
+				System.out.printf("%4d", arr[i][j]);
+			}
+			System.out.println();
+		}
 	}
 	
 	public void practice05() {
@@ -131,21 +139,26 @@ public class DimensionPractice {
 		String students[] = {"강건강", "남나나", "도대담", "류라라", "문미미", "박보배", "송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하"};
 		String seat1[][] = new String[3][2];
 		String seat2[][] = new String[3][2];
-		int x=0, y=0;
-		
+				
 		for(int i=0; i<3; i++) {
 			System.arraycopy(students, i*2, seat1[i], 0, 2);
 			System.arraycopy(students, 6+i*2, seat2[i], 0, 2);
 		}
 
 		System.out.println("== 1분단 ==");
-		for(int i=0; i<3; i++) {
-			System.out.println(Arrays.toString(seat1[i]));
+		for(int i=0; i<seat1.length; i++) {
+			for(int j=0; j<seat1[i].length; j++) {
+				System.out.printf("%s ", seat1[i][j]);
+			}
+			System.out.println();
 		}
 		
 		System.out.println("\n== 2분단 ==");
-		for(int i=0; i<3; i++) {
-			System.out.println(Arrays.toString(seat2[i]));
+		for(int i=0; i<seat2.length; i++) {
+			for(int j=0; j<seat2[i].length; j++) {
+				System.out.printf("%s ", seat2[i][j]);
+			}
+			System.out.println();
 		}
 	}
 	

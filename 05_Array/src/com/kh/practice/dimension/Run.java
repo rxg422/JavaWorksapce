@@ -12,8 +12,8 @@ public class Run {
 //		dp.practice05();
 //		dp.practice06();
 //		dp.practice07();
-//		dp.practice08();
-		dp.practice09();
+		dp.practice08();
+//		dp.practice09();
 	}
 
 }
