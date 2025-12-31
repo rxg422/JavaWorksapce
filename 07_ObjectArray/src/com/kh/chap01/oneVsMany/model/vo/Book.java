@@ -8,7 +8,7 @@ public class Book {
 	
 	// 생성자 함수
 	public Book() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public Book(String title, String author, int price, String publisher) {
@@ -49,6 +49,11 @@ public class Book {
 
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
+	}
+	
+	// 메서드
+	public String information() {
+		return "title: " + title + ", author: " + author + ", price: " + price + ", publisher: " + publisher;
 	}
 	
 }
