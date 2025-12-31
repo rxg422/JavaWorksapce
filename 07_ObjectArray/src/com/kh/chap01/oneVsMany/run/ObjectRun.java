@@ -33,6 +33,8 @@ public class ObjectRun {
 				System.out.printf("b%d = %s\n", i+1, bArr[i].information());
 			}
 		}
+		
+		sc.close();
 	}
 
 }
