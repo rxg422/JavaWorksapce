@@ -12,13 +12,12 @@ public class ShapeMenu {
 	private TriangleController tc = new TriangleController();
 	
 	public void inputMenu() {
-		
 		while(true) {
-			System.out.println(" ===== 도형 프로그램 ===== ");
+			System.out.println("===== 도형 프로그램 =====");
 			System.out.print("3. 삼각형\n4. 사각형\n9. 프로그램 종료\n메뉴 번호 : ");
 			int input = sc.nextInt();
 			
-			switch(input){
+			switch(input) {
 			case 3:
 				triangleMenu();
 				break;
@@ -30,18 +29,13 @@ public class ShapeMenu {
 				return;
 			default:
 				System.out.println("잘못된 번호입니다. 다시 입력해주세요.");
-				continue;
 			}
 		}
-		
-		
 	}
 	
 	public void triangleMenu() {
-		sc.nextLine();
-		
 		while(true) {
-			System.out.println(" ===== 삼각형 ===== ");
+			System.out.println("===== 삼각형 =====");
 			System.out.print("1. 삼각형 면적\n2. 삼각형 색칠\n3. 삼각형 정보\n9. 메인으로\n메뉴 번호 : ");
 			int input = sc.nextInt();
 			
@@ -63,10 +57,8 @@ public class ShapeMenu {
 	}
 	
 	public void squareMenu() {
-		sc.nextLine();
-		
 		while(true) {
-			System.out.println(" ===== 사각형 ===== ");
+			System.out.println("===== 사각형 =====");
 			System.out.print("1. 사각형 둘레\n2. 사각형 면적\n3. 사각형 색칠\n4. 사각형 정보\n9. 메인으로\n메뉴 번호 : ");
 			int input = sc.nextInt();
 			

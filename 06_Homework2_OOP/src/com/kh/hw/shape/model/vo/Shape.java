@@ -7,7 +7,7 @@ public class Shape {
 	private String color = "white";
 	
 	public Shape() {
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	public Shape(int type, double height, double width) {
