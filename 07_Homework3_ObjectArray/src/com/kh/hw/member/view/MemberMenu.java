@@ -24,7 +24,7 @@ public class MemberMenu {
 				
 			}
 			else {
-				System.out.print("2. 회원 검색\n3. 회원 정보 수정\n4. 회원 삭제\n5. 모두 출력\n9. 끝내기\n메뉴 번호 : ");
+				System.out.print("회원 수가 모두 꽉 찼기 때문에 일부 메뉴만 오픈됩니다.\n2. 회원 검색\n3. 회원 정보 수정\n4. 회원 삭제\n5. 모두 출력\n9. 끝내기\n메뉴 번호 : ");
 			}
 			
 			int menu = sc.nextInt();
