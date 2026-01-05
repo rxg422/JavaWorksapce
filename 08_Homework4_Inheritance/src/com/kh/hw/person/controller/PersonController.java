@@ -24,8 +24,10 @@ public class PersonController {
 		return s;
 	}
 
-	public void insertEmployee(String name, int age, double height, double weight, int salaty, String dept) {
-		
+	public void insertEmployee(String name, int age, double height, double weight, int salary, String dept) {
+		Employee employee = new Employee(name, age, height, weight, salary, dept);
+		e[eCnt] = employee;
+		eCnt++;
 	}
 	
 	public Employee[] printEmployee() {

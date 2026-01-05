@@ -79,11 +79,11 @@ public class PersonMenu {
 	public void employeeMenu() {
 		int menu, eCnt;
 		while(true) {
-			eCnt = pc.personCount()[0];
+			eCnt = pc.personCount()[1];
 			System.out.print("1. 사원 추가\n2. 사원 보기\n9.메인으로\n메뉴 번호 : ");
 			menu = sc.nextInt();
 			
-			if(eCnt == 10) {
+			if(eCnt >= 10) {
 				System.out.println("사원을 담을 수 있는 공간이 꽉 찼기 때문에 사원 추가 메뉴는 더 이상 활성화 되지 않습니다.");
 				
 				switch(menu) {
@@ -150,17 +150,50 @@ public class PersonMenu {
 	
 	public void printStudent() {
 //		Person p[] = pc.printStudent();
+		
 		for(Person p : pc.printStudent()) {
-			p.toString();
+			if(p!=null) {
+				System.out.println(p.toString());
+			}
 		}
 	}
 
 	public void insertEmployee() {
+		String name, dept;
+		int age, salary;
+		double height, weight;
+		char isAdd;
 		
+		System.out.print("사원 이름 : ");
+		name = sc.next();
+		System.out.print("사원 나이 : ");
+		age = sc.nextInt();
+		System.out.print("사원 키 : ");
+		height = sc.nextDouble();
+		System.out.print("사원 몸무게 : ");
+		weight = sc.nextDouble();
+		System.out.print("사원 연봉 : ");
+		salary = sc.nextInt();
+		System.out.print("사원 부서 : ");
+		dept = sc.next();
+		
+		pc.insertEmployee(name, age, height, weight, salary, dept);
+		
+		if(pc.personCount()[1]<10) {
+			System.out.println("그만하시려면 N(또는 n), 이어하시려면 아무 키나 누르세요 : ");
+			isAdd = sc.next().charAt(0);
+			if(!(isAdd == 'n' || isAdd == 'N')) {
+				insertEmployee();
+			}
+		}
 	}
 	
 	public void printEmployee() {
-		
+		for(Person p : pc.printEmployee()) {
+			if(p!=null) {
+				System.out.println(p.toString());
+			}
+		}
 	}
 	
 }

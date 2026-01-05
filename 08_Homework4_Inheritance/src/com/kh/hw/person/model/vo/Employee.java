@@ -33,8 +33,7 @@ public class Employee extends Person{
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return super.toString() + "Employee [salary=" + salary + ", dept=" + dept + "]";
 	}
 
 	

@@ -33,11 +33,13 @@ public class Student extends Person{
 		this.major = major;
 	}
 
+
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString() + " " + grade + " " + major;
+		return super.toString() + "Student [grade=" + grade + ", major=" + major + "]";
 	}
+
+
 	
 	
 	

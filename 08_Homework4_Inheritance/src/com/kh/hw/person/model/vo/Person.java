@@ -52,10 +52,9 @@ public class Person {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return name + " " + age + " " + height + " " + weight;
+		return "Person [name=" + name + ", age=" + age + ", height=" + height + ", weight=" + weight + "]";
 	}
-	
+
 	
 	
 }
