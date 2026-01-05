@@ -69,7 +69,7 @@ public class Member {
 	}
 	
 	public String information() {
-		return "";
+		return id + " " + name + " " + password + " " + email + " " + gender + " " + age;
 	}
 	
 }
