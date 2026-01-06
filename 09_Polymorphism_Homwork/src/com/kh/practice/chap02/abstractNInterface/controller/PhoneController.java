@@ -14,7 +14,7 @@ public class PhoneController {
 		
 		
 		for(int i=0; i<p.length; i++) {
-			result[i] = p[i].printInformation();
+			result[i] = ((SmartPhone)p[i]).printInformation();
 		}
 		 // 2개의 Phone 객체를 저장할 수 있는 객체배열 생성 
 		  // 각각의 인덱스에 다형성을 적용하여 GalaxyNote9, V40 객체 저장  

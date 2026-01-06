@@ -41,7 +41,6 @@ public class SmartPhone implements CellPhone, TouchDisplay{
 		return "고속 충전, 고속 무선 충전";
 	}
 
-	@Override
 	public String printInformation() {
 		// TODO Auto-generated method stub
 		return "은 " + maker + "에서 만들어졌고 제원은 다음과 같다.\n" + makeCall() + "\n" + takeCall() + "\n" + picture() + "\n" + charge() + "\n" + touch();

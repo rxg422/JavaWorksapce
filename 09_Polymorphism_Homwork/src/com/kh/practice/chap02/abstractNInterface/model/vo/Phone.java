@@ -6,6 +6,5 @@ public interface Phone {
 	
 	public String makeCall();
 	public String takeCall();
-	public String printInformation();
 	
 }

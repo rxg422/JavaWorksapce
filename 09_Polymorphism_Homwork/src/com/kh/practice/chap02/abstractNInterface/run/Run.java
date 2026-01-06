@@ -8,7 +8,7 @@ public class Run {
 		PhoneController pc = new PhoneController();
 		
 		for(String s : pc.method()) {
-			System.out.println("\n" + s);
+			System.out.println(s + "\n");
 			
 		}
 	}

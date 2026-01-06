@@ -42,7 +42,6 @@ public class GlaxyNote9 extends SmartPhone implements NotePen{
 
 	@Override
 	public String printInformation() {
-		
 		return "갤럭시 노트 9"+ super.printInformation() + "\n블루투스 펜 탑재 여부 : " + bluetoothPen();
 	}
 
