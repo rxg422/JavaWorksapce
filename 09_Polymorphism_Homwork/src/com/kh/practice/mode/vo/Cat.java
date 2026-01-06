@@ -45,8 +45,7 @@ public class Cat extends Animal {
 
 	@Override
 	public void speak() {
-		// TODO Auto-generated method stub
-		System.out.println("냥");
+		System.out.println(super.toString() + ", location=" + location + ", color=" + color + "]");
 	}
 	
 	

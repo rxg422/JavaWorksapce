@@ -17,7 +17,7 @@ public abstract class Animal {
 
 	@Override
 	public String toString() {
-		return "Animal [name=" + name + ", kinds=" + kinds + "]";
+		return "Animal [name=" + name + ", kinds=" + kinds + "";
 	}
 	
 	public abstract void speak();
