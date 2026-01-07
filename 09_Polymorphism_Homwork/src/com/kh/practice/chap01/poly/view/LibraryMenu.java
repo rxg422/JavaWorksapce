@@ -6,6 +6,7 @@ import com.kh.practice.chap01.poly.contoller.LibraryController;
 import com.kh.practice.chap01.poly.mode.vo.Book;
 import com.kh.practice.chap01.poly.mode.vo.Member;
 
+
 public class LibraryMenu {
 
 	private LibraryController lc = new LibraryController();
@@ -13,7 +14,7 @@ public class LibraryMenu {
 	
 	public void mainMenu() {
 		String name;
-		int age;
+		int age, menu;
 		char gender = 'M';
 		
 		System.out.print("이름 : ");
@@ -31,12 +32,8 @@ public class LibraryMenu {
 			}
 			System.out.println("성별을 다시 입력해주세요.");
 		}
-		
-		
 		Member mem = new Member(name, age, gender);
 		lc.insertMember(mem);
-		
-		int menu;
 		
 		while(true) {
 			System.out.print("==== 메뉴 ====\n1. 마이페이지\n2. 도서 전체 조회\n3. 도서 검색\n4. 도서 대여하기\n9. 프로그램 종료하기\n메뉴 번호 : ");
@@ -76,11 +73,17 @@ public class LibraryMenu {
 	
 	public void searchBook() {
 		System.out.print("검색할 제목 키워드 : ");
-		String keyword = sc.next();
-		
+		sc.nextLine();
+		String keyword = sc.nextLine();
 		Book searchList[] = lc.searchBook(keyword);
 		
+		if(searchList[0]==null) {
+			System.out.println("키워드에 해당하는 책이 없습니다.");
+			return;
+		}
+		
 		for(int i=0; i<searchList.length; i++) {
+			
 			if(searchList[i]!=null) {
 				System.out.println(searchList[i]);
 			}

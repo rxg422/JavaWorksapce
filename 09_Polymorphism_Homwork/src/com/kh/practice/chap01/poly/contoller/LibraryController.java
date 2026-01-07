@@ -10,13 +10,12 @@ public class LibraryController {
 	public LibraryController() {
 		bList[0] = new CookBook("김치활용", "에드워드리", "넷플릭스", false);
 		bList[1] = new CookBook("미슐랭", "안성재", "안성재스튜디오", true);
-		bList[2] = new AniBook("지건마스터", "뷁", "지건협회", 15);
+		bList[2] = new AniBook("지건 마스터", "뷁", "지건협회", 15);
 		bList[3] = new CookBook("한식공부", "아기맹수", "넷플릭스", false);
 		bList[4] = new AniBook("살인면허", "x사", "살인인정협회", 19);
 	}
 	
 	public void insertMember(Member mem) {
-		
 		this.mem = mem;
 	}
 	
