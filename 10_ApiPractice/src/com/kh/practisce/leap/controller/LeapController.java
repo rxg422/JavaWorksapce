@@ -16,6 +16,16 @@ public class LeapController {
 	public long leapDate(Calendar c) {
 		Calendar day = new GregorianCalendar(1, 0, 1);
 		
+		long total = 0;
+		for(int i=1; i<=c.get(Calendar.YEAR); i++) {
+			if(isLeapYear(i)) {
+				total += 366;
+			}
+			else {
+				total += 365;
+			}
+		}
+		
 		long num1 = c.getTimeInMillis();
 		long num2 = day.getTimeInMillis();
 		
