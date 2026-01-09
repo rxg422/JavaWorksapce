@@ -9,7 +9,7 @@ public class Phone implements Serializable{
 	private transient String password;
 	
 	public Phone() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Phone(String name, int price, String password) {

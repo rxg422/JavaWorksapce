@@ -9,9 +9,11 @@ public class Run {
 		ObjectDao od = new ObjectDao();
 		ObjectsDao osd = new ObjectsDao();
 		
+		System.out.println("=== ObjectDao ===");
+		od.fileSave();
+		od.fileRead();
 		
-//		od.fileSave();
-//		od.fileRead();
+		System.out.println("=== ObjectsDao ===");
 		
 		osd.fileSave();
 		osd.fileRead();
