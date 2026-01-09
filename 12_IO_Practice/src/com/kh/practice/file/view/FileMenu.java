@@ -37,43 +37,30 @@ public class FileMenu {
 	}
 	
 	public void fileSave() {
-		String input, title;
+		String title;
 		char isSave=' ';
 		
 		sb.delete(0, sb.length());
 		sc.nextLine();
-		while(true) {
-			System.out.print("내용 : ");
-			input = sc.nextLine();
-			
-			if(input.equals("ex끝it")) {
-				break;
-			}
-			
-			sb.append(input+"\n");
-		}
+		
+		addText();
 		
 		while(true) {
 			System.out.print("저장할 파일 명을 입력해주세요(ex. myFile.txt) : ");
 			title = sc.next();
 			
-			if(fc.checkName(title)) {
-				System.out.print("이미 존재하는 파일입니다. 덮어쓰시겠습니까?(y/n) : ");
-				isSave = sc.next().charAt(0);
-				
-				switch(isSave) {
-				case 'y', 'Y' :
-					break;
-				case 'n', 'N' :
-					continue;
-				default :
-					System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
-					continue;
-				}
-				
+			if(!fc.checkName(title)) {
+				break;
 			}
 			
-			break;
+			System.out.print("이미 존재하는 파일입니다. 덮어쓰시겠습니까?(y/n) : ");
+			isSave = sc.next().charAt(0);
+			
+			if(isSave == 'y' || isSave == 'Y') {
+				break;
+			}
+			
+			continue;
 		}
 		
 		fc.fileSave(title, sb);
@@ -104,10 +91,16 @@ public class FileMenu {
 			return;
 		}
 		
-		sb.delete(0, sb.length());
-		sc.nextLine();
+		addText();
+		
+		fc.fileEdit(fName, sb);
+	}
+	
+	private void addText() {
+		String input;
+		
+		System.out.println("내용을 입력하세요. ex끝it를 입력하면 종료합니다.");
 		while(true) {
-			System.out.print("내용 : ");
 			input = sc.nextLine();
 			
 			if(input.equals("ex끝it")) {
@@ -116,8 +109,6 @@ public class FileMenu {
 			
 			sb.append(input+"\n");
 		}
-		
-		fc.fileEdit(fName, sb);
 	}
 	
 }
