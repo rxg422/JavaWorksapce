@@ -46,16 +46,16 @@ public class BookMenu {
 		System.out.print("도서 명 : ");
 		String title = sc.nextLine();
 		
-		System.out.println("저자 명 : ");
+		System.out.print("저자 명 : ");
 		String author = sc.nextLine();
 		
-		System.out.println("도서 가격 : ");
+		System.out.print("도서 가격 : ");
 		int price = sc.nextInt();
 		
-		System.out.println("출판 날짜(yyyy-mm-dd) : ");
+		System.out.print("출판 날짜(yyyy-mm-dd) : ");
 		String day[] = sc.next().split("-");
 		
-		System.out.println("할인율 : ");
+		System.out.print("할인율 : ");
 		double discount = sc.nextDouble();
 		
 		int year = Integer.parseInt(day[0]);
@@ -68,11 +68,11 @@ public class BookMenu {
 		
 		int idx = 0;
 		
-		for(Book b : bArr) {
-			if(b==null) {
+		for(int i=0; i<10; i++) {
+			if(bArr[i] == null) {
+				idx = i;
 				break;
 			}
-			idx++;
 		}
 		
 		bArr[idx++] = new Book(title, author, price, c, discount);

@@ -1,6 +1,7 @@
 package com.kh.practice3.book.model.vo;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Book implements Serializable {
@@ -66,7 +67,10 @@ public class Book implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", price=" + price + ", date=" + date.get(date.YEAR)+"/"+date.get(date.MONTH)+"/" +date.get(date.DATE) + ", discount="
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
+		String formatDate = sdf.format(date.getTimeInMillis());
+		
+		return "Book [title=" + title + ", author=" + author + ", price=" + price + ", date=" + formatDate + ", discount="
 				+ discount + "]";
 	}
 	
