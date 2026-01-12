@@ -38,6 +38,12 @@ public class BookController {
 	}
 	
 	public Book deleteBook(String title, String author) {
+//		for(int i=0; i < list.size(); i++) {
+//			if(list.get(i).getTitle().equals(title) && list.get(i).getAuthor().equals(author)) {
+//				return list.remove(i);
+//			}
+//		}
+		
 		for(Book b : list) {
 			if(b.getTitle().equals(title) && b.getAuthor().equals(author)) {
 				return list.remove(list.indexOf(b));
@@ -47,7 +53,11 @@ public class BookController {
 	}
 	
 	public int ascBook() {
-		Collections.sort(list);
+		try {
+			Collections.sort(list);
+		} catch (Exception e) {
+			return 0;
+		}
 		
 		return 1;
 	}
