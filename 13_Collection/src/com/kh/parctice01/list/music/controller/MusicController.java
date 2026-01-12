@@ -49,30 +49,44 @@ public class MusicController {
 	}
 	
 	public Music removeMusic(String title) {
-		for(int i=0; i<list.size(); i++) {
-			if(list.get(i).getTitle().equals(title)) {
-				return list.remove(i);
-			}
+		try {
+			return list.remove(list.indexOf(searchMusic(title)));
+		}
+		catch (Exception e) {
+			return null;
 		}
 		
-		return null;
+//		searchMusic(title);
+		
+//		for(int i=0; i<list.size(); i++) {
+//			if(list.get(i).getTitle().equals(title)) {
+//				return list.remove(i);
+//			}
+//		}
+		
+//		return null;
 	}
 	
 	public Music setMusic(String title, Music music) {
-		for(int i=0; i<list.size(); i++) {
-			if(list.get(i).getTitle().equals(title)) {
-				list.add(i, music);
-				return list.remove(i+1);
-			}
+		try {
+			return list.set(list.indexOf(searchMusic(title)), music);
+		}
+		catch (Exception e) {
+			return null;
 		}
 		
-		return null;
+//		for(int i=0; i<list.size(); i++) {
+//			if(list.get(i).getTitle().equals(title)) {
+//				return list.set(i, music);
+//			}
+//		}
+//		
+//		return null;
 	}
 	
 	public int ascTitle() {
 		try {
-			Comparator<Music> comp = new AscTitle();
-			Collections.sort(list, comp);
+			Collections.sort(list, new AscTitle());
 		}
 		catch (Exception e) {
 			return 0;
