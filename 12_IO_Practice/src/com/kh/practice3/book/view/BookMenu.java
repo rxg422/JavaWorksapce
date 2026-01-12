@@ -12,17 +12,13 @@ public class BookMenu {
 	private Scanner sc = new Scanner(System.in);
 	private BookController bc = new BookController();
 	private Book bArr[] = null;
-	private int idx = 0;
 	
 	public BookMenu() {
 		bc.makeFile();
 		bArr = bc.fileRead();
-		// 파일이 없을 때 만들어주기 위해 BookController(bc)에 makeFile() 호출 
-		  // 필드에 있는 bArr에 bc의 fileRead() 반환 값 대입
 	}
 	
 	public void mainMenu() {
-		
 		int menu;
 		while(true) {
 			System.out.print("===== Main Menu =====\n1. 도서 추가 저장\n2. 저장 도서 출력\n9. 프로그램 끝내기\n메뉴 번호 : ");
@@ -57,17 +53,27 @@ public class BookMenu {
 		int price = sc.nextInt();
 		
 		System.out.println("출판 날짜(yyyy-mm-dd) : ");
-		String date[] = sc.next().split("-");
-		
+		String day[] = sc.next().split("-");
 		
 		System.out.println("할인율 : ");
 		double discount = sc.nextDouble();
 		
-		int year = Integer.valueOf(date[0]);
-		int month = Integer.valueOf(date[1]);
-		int day = Integer.valueOf(date[2]);
+		int year = Integer.parseInt(day[0]);
+		int month = Integer.parseInt(day[1]);
+		int date = Integer.parseInt(day[2]);
 		
-		Calendar c = new GregorianCalendar(year, month, day);
+		Calendar c = new GregorianCalendar(year, month, date);
+//		Calendar c = Calendar.getInstance();
+//		c.set(year, month, date);
+		
+		int idx = 0;
+		
+		for(Book b : bArr) {
+			if(b==null) {
+				break;
+			}
+			idx++;
+		}
 		
 		bArr[idx++] = new Book(title, author, price, c, discount);
 		

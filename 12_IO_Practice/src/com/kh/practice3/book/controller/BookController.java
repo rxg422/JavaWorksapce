@@ -13,7 +13,7 @@ public class BookController {
 	
 	public void makeFile() {
 		File f = new File("book.txt");
-		if(!f.isFile()) {
+		if(!f.exists()) {
 			try {
 				f.createNewFile();
 			} catch (IOException e) {

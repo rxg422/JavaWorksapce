@@ -66,7 +66,7 @@ public class Book implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", price=" + price + ", date=" + date + ", discount="
+		return "Book [title=" + title + ", author=" + author + ", price=" + price + ", date=" + date.get(date.YEAR)+"/"+date.get(date.MONTH)+"/" +date.get(date.DATE) + ", discount="
 				+ discount + "]";
 	}
 	
