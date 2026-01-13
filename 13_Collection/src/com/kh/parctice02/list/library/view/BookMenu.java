@@ -48,6 +48,8 @@ public class BookMenu {
 		String title, author;
 		int category, price;
 		
+		String cArr[] = {"인문", "자연과학", "의료", "기타"};
+		
 		sc.nextLine();
 		
 		System.out.print("도서명 : ");
@@ -59,13 +61,13 @@ public class BookMenu {
 		System.out.print("가격 : ");
 		price = sc.nextInt();
 		
-		bc.insertBook(new Book(title, author, category==1 ? "인문" : category==2 ? "자연과학" : category==3 ? "의료" : "기타", price));
+		bc.insertBook(new Book(title, author, cArr[category-1], price));
 	}
 	
 	public void selectList() {
 		ArrayList<Book> list = bc.selectList();
 		
-		if(list.size()==0) {
+		if(list.isEmpty()) {
 			System.out.println("존재하는 도서가 없습니다.");
 			return;
 		}
@@ -85,7 +87,7 @@ public class BookMenu {
 		
 		ArrayList<Book> list = bc.searchBook(keyword);
 		
-		if(list.size()==0) {
+		if(list.isEmpty()) {
 			System.out.println("존재하는 도서가 없습니다.");
 			return;
 		}

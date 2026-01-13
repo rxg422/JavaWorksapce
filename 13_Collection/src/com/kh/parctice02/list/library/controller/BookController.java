@@ -2,6 +2,7 @@ package com.kh.parctice02.list.library.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import com.kh.parctice02.list.library.model.vo.Book;
@@ -18,6 +19,13 @@ public class BookController {
 	}
 	
 	public void insertBook(Book bk) {
+//		for(Book b : list) {
+//			if(list.get(list.indexOf(b)).equals(bk)) {
+//				System.out.println("이미 존재하는 서적입니다.");
+//				return;
+//			}
+//		}
+		
 		list.add(bk);
 	}
 	
@@ -38,9 +46,21 @@ public class BookController {
 	}
 	
 	public Book deleteBook(String title, String author) {
+//		Book b;
+//		
 //		for(int i=0; i < list.size(); i++) {
-//			if(list.get(i).getTitle().equals(title) && list.get(i).getAuthor().equals(author)) {
+//			b = list.get(i);
+//			if(b.getTitle().equals(title) && b.getAuthor().equals(author)) {
 //				return list.remove(i);
+//			}
+//		}
+		
+//		Iterator<Book> iter = list.iterator();
+//		
+//		while(iter.hasNext()) {
+//			Book b = iter.next();
+//			if(b.getTitle().equals(title) && b.getAuthor().equals(author)) {
+//				return list.remove(list.indexOf(b));
 //			}
 //		}
 		
@@ -55,7 +75,8 @@ public class BookController {
 	public int ascBook() {
 		try {
 			Collections.sort(list);
-		} catch (Exception e) {
+		} 
+		catch (Exception e) {
 			return 0;
 		}
 		
