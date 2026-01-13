@@ -104,7 +104,7 @@ public class LoopPractice {
 	}
 	
 	public void practice4() {
-		int n1, n2, tmp;
+		int n1, n2;
 		
 		while(true) {
 			System.out.print("첫 번쨰 숫자 : ");
@@ -117,17 +117,8 @@ public class LoopPractice {
 				continue;
 			}
 			
-			if(n1>n2) {
-				tmp = n1;
-				n1 = n2;
-				n2 = tmp;
-			}
-			
-			for(int i=n1; i<=n2; i++) {
+			for(int i=Math.min(n1, n2); i<=Math.max(n1, n2); i++) {
 				System.out.printf("%2d ", i);
-//				if(i % 10 == 0) {
-//					System.out.println();
-//				}
 			}
 			
 			break;
