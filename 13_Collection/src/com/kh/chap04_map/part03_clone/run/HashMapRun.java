@@ -5,7 +5,7 @@ import com.kh.chap04_map.part01_hashMap.model.vo.Snack;
 public class HashMapRun <K, V> {
 
 	private Entry<K, V>[] table;
-	private int capacity, size;
+	private int capacity, size=0;
 	
 	class Entry <K, V> {
 		K key;
@@ -37,25 +37,58 @@ public class HashMapRun <K, V> {
 		else {
 			if(table[index].key.equals(key)) {
 				table[index].value = value;
+				return;
 			}
 			else {
+				Entry<K,V> next = table[index];
 				
+				while(true) {
+					// Entry의 키값이 중복인 경우
+					if(next.key.equals(key)) {
+						next.value = value;
+						return;
+					}
+					
+					// 현재 Entry가 마지막일 때
+					if(next.next == null) {
+						next.next = new Entry<>(key, value, null);
+						break;						
+					}
+					
+					next = next.next;
+				}
 			}
 		}
-		
-		
-		// getIndex함수 호출후 반환값으로 table의 index에 접근  
-		// 접근시 내부의 값이 null이라면 Entry매개변수 있는 생성자를 이용하여 
-		// 객체생성후 비어있는 저장공간에 Entry객체 추가하기. 
-		//  ex) 최초 Entry 객체 생성시 : new Entry(key, value , null) 
-		// 값이 null이 아니라면 , entry에 저장된 key값과 새롭게 추가하려는 entry의 
-		// key값이 동일한지 검사후 동일하다면 , 중복값이므로 value값만 덮어씌우고 
-		// key값이 다르다면 현재 entry의 next요소에 entry객체 저장. 
-		// 만약 next에도 이미 값이 존재하는경우, next가 없는 entry를 찾을때까지 반복  
-		// 중복값을 제외하고, 값이 새롭게 추가된경우 size 증가
+		size++;
 	}
 	
-	public Snack get(String key) {
+	public Snack get(K key) {
+		// getIndex함수 호출후 반환값으로 table의 index에 접근 
+		int idx = getIndex(key);
+		Entry entry = table[idx];
+		
+		// 접근시 내부의 값이 null이라면 null값 반환   
+		if(entry == null) {
+			return null;
+		}
+		// 객체가 있다면 저장된 객체의 key값과 매개변수로 전달받은 key값 확인 
+
+		
+		while(true) {
+			if(entry == null) {
+				break;
+			}
+			if(entry.key.equals(key)) {
+//				return entry.value;
+			}
+			
+//			entry.
+		}
+		// 동일하다면 객체에 저장된 value값 반환. 
+		// 동일하지 않다면 노드드의 next 값을 찾아 다시한번 검사 (next가 존재하지  
+		// 않을때까지 반복). 다음 노드들 중에서 key값이 일치하는 값이 존재한다면  
+		// 노드 내부의 value값 반환. 일치하는 key값이 없었다면 null값 반환 
+		
 		return null;
 	}
 	
