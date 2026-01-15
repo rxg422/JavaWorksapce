@@ -1,5 +1,6 @@
 package com.kh.practice06.generics.view;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 import com.kh.practice06.generics.controller.FarmController;
@@ -116,6 +117,7 @@ public class FarmMenu {
 				break;
 			case 3 :
 				result = fc.addNewKind(new Nuts("견과", name), n);
+				break;
 			default :
 				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 				continue;
@@ -151,6 +153,7 @@ public class FarmMenu {
 				break;
 			case 3 :
 				result = fc.removeKind(new Nuts("견과", name));
+				break;
 			default :
 				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 				continue;
@@ -188,6 +191,7 @@ public class FarmMenu {
 				break;
 			case 3 :
 				result = fc.changeAmount	(new Nuts("견과", name), n);
+				break;
 			default :
 				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 				continue;
@@ -203,22 +207,89 @@ public class FarmMenu {
 	}
 	
 	public void printFarm() {
-		
 		for(Farm f : fc.printFarm().keySet()) {
 			System.out.println(f.getKind() + " : " + f.toString() + "(" + fc.printFarm().get(f) + "개)");
 		}
 	}
 	
 	public void buyFarm() {
+		int kind;
+		String name;
+		boolean result = false;
 		
+		while(true) {
+			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
+			kind = sc.nextInt();
+			
+			System.out.print("이름 : ");
+			name = sc.next();
+			
+			switch(kind) {
+			case 1 :
+				result = fc.buyFarm(new Fruit("과일", name));
+				break;
+			case 2 :
+				result = fc.buyFarm(new Vegetable("채소", name));
+				break;
+			case 3 :
+				result = fc.buyFarm(new Nuts("견과", name));
+				break;
+			default :
+				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+				continue;
+			}
+			
+			if(result) {
+				System.out.println("구매에 성공하였습니다.");
+				return;
+			}
+			
+			System.out.println("마트에 없는 물건이거나 수량이 없습니다. 다시 입력해주세요.");
+		}
 	}
 	
 	public void removeFarm() {
+		int kind;
+		String name;
+		boolean result = false;
 		
+		while(true) {
+			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
+			kind = sc.nextInt();
+			
+			System.out.print("이름 : ");
+			name = sc.next();
+			
+			switch(kind) {
+			case 1 :
+				result = fc.removeFarm(new Fruit("과일", name));
+				break;
+			case 2 :
+				result = fc.removeFarm(new Vegetable("채소", name));
+				break;
+			case 3 :
+				result = fc.removeFarm(new Nuts("견과", name));
+				break;
+			default :
+				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+				continue;
+			}
+			
+			if(result) {
+				System.out.println("구매 취소에 성공하였습니다.");
+				return;
+			}
+			
+			System.out.println("구매 목록에 존재하지 않습니다. 다시 입력해주세요.");
+		}
 	}
 	
 	public void printBuyFarm() {
+		Iterator<Farm> iter = fc.printBuyFarm().iterator();
 		
+		while(iter.hasNext()) {
+			System.out.println(iter.next());
+		}
 	}
 	
 }

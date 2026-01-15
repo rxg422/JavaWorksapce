@@ -42,6 +42,21 @@ public class FarmController {
 	}
 	
 	public boolean buyFarm(Farm f) {
+		if(hMap.containsKey(f) && hMap.get(f)>0) {
+			hMap.replace(f, hMap.get(f)-1);
+			list.add(f);
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean removeFarm(Farm f) {
+		if(list.contains(f)) {
+			list.remove(f);
+			hMap.replace(f, hMap.get(f)+1);
+			return true;
+		}
 		return false;
 	}
 	
