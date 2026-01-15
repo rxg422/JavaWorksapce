@@ -78,13 +78,12 @@ public class MemberMenu {
 			System.out.print("Name : ");
 			name = sc.next();
 			
-			if(!(mc.joinMembership(id, new Member(pw, name)))) {
-				System.out.println("중복된 아이디입니다. 다시 입력해주세요.");
-				continue;
+			if((mc.joinMembership(id, new Member(pw, name)))) {
+				System.out.println("성공적으로 회원가입 완료하였습니다.");
+				return;
 			}
 			
-			System.out.println("성공적으로 회원가입 완료하였습니다.");
-			return;
+			System.out.println("중복된 아이디입니다. 다시 입력해주세요.");
 		}
 	}
 	
@@ -101,13 +100,13 @@ public class MemberMenu {
 			result = mc.login(id, pw);
 			
 			if(result == null) {
-				System.out.println("틀린 아이디 또는 비밀번호입니다. 다시 입력해주세요.");
-				continue;
+				System.out.println(result + "님, 환영합니다!");
+				memberMenu();
+				return;
+				
 			}
 			
-			System.out.println(result + "님, 환영합니다!");
-			memberMenu();
-			return;
+			System.out.println("틀린 아이디 또는 비밀번호입니다. 다시 입력해주세요.");
 		}
 	}
 	
@@ -125,12 +124,11 @@ public class MemberMenu {
 			newPW = sc.next();
 			
 			if(!(mc.changePasswd(id, oldPW, newPW))) {
-				System.out.println("비밀번호 변경에 실패했습니다. 다시 입력해주세요.");
-				continue;
+				System.out.println("비밀번호 변경에 성공했습니다.");
+				return;
 			}
 			
-			System.out.println("비밀번호 변경에 성공했습니다.");
-			return;
+			System.out.println("비밀번호 변경에 실패했습니다. 다시 입력해주세요.");
 		}
 	}
 	

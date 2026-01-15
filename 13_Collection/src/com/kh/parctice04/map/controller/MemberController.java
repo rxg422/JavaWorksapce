@@ -40,8 +40,9 @@ public class MemberController {
 		}
 	}
 	
-	public TreeMap sameName(String name) {
+	public TreeMap<String, String> sameName(String name) {
 		TreeMap<String, String> tree = new TreeMap<>();
+		
 		for (String s : map.keySet()) {
 			if(map.get(s).getName().equals(name)) {
 				tree.put(s, map.get(s).getName());
