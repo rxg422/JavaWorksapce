@@ -13,15 +13,12 @@ public class Customer extends Thread {
 		for(int i=0; i<10; i++) {
 			System.out.println("get value : " + data.getValue());
 			
-			try {
-				Thread.sleep(100);
-			}
-//			catch(EmptyException e) {
+//			try {
+//				Thread.sleep(100);
+//			}
+//			catch(InterruptedException e) {
 //				e.printStackTrace();
 //			}
-			catch(InterruptedException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 	

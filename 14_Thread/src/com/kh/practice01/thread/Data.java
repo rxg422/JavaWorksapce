@@ -22,6 +22,13 @@ public class Data {
 			isEmpty = false;
 			notify();
 			this.value = value;
+			
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		
@@ -37,11 +44,17 @@ public class Data {
 				catch(InterruptedException e) {
 					e.printStackTrace();
 				}catch (EmptyException e) {
-					
+					System.out.println(e.getMessage());
 				}
 			}
 			isEmpty = true;
 			notify();
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return value;
 		}
 	}

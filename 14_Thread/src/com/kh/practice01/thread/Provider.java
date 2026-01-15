@@ -20,12 +20,12 @@ public class Provider extends Thread {
 			data.setValue(num);
 			System.out.println("put value : " + num);
 			
-			try {
-				Thread.sleep(100);
-			} 
-			catch(InterruptedException e) {
-				e.printStackTrace();
-			}
+//			try {
+//				Thread.sleep(100);
+//			} 
+//			catch(InterruptedException e) {
+//				e.printStackTrace();
+//			}
 		}
 	}
 	
