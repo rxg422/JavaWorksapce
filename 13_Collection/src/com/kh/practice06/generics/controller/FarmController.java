@@ -11,14 +11,29 @@ public class FarmController {
 	private ArrayList<Farm> list = new ArrayList<Farm>();
 	
 	public boolean addNewKind(Farm f, int amount) {
-		return false;
+		if(hMap.containsKey(f)) {
+			return false;
+		}
+		
+		hMap.put(f, amount);
+		return true;
 	}
 	
 	public boolean removeKind(Farm f) {
+		if(hMap.containsKey(f)) {
+			hMap.remove(f);
+			return true;
+		}
+		
 		return false;
 	}
 	
 	public boolean changeAmount(Farm f, int amount) {
+		if(hMap.containsKey(f)) {
+			hMap.replace(f, amount);
+			return true;
+		}
+		
 		return false;
 	}
 	

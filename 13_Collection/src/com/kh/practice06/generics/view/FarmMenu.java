@@ -3,6 +3,10 @@ package com.kh.practice06.generics.view;
 import java.util.Scanner;
 
 import com.kh.practice06.generics.controller.FarmController;
+import com.kh.practice06.generics.model.vo.Farm;
+import com.kh.practice06.generics.model.vo.Fruit;
+import com.kh.practice06.generics.model.vo.Nuts;
+import com.kh.practice06.generics.model.vo.Vegetable;
 
 public class FarmMenu {
 
@@ -92,44 +96,117 @@ public class FarmMenu {
 	public void addNewKind() {
 		int kind, n;
 		String name;
+		boolean result = false;
 		
 		while(true) {
 			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
 			kind = sc.nextInt();
-			
-			if(kind > 0 || kind < 4) {
-				return;
-			}
-			
-			System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 			
 			System.out.print("이름 : ");
 			name = sc.next();
 			System.out.print("수량 : ");
 			n = sc.nextInt();
 			
+			switch(kind) {
+			case 1 :
+				result = fc.addNewKind(new Fruit("과일", name), n);
+				break;
+			case 2 :
+				result = fc.addNewKind(new Vegetable("채소", name), n);
+				break;
+			case 3 :
+				result = fc.addNewKind(new Nuts("견과", name), n);
+			default :
+				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+				continue;
+			}
 			
+			if(result) {
+				System.out.println("새 농산물이 추가되었습니다.");
+				return;
+			}
+			
+			System.out.println("새 농산물 추가에 실패하였습니다. 다시 입력해주세요.");
 		}
-		
-		
-//		‘1. 과일 / 2. 채소 / 3. 견과’를 통해 번호로 종류를 받고 추가 농산물의 이름, 수량도 
-//		받음. 이때 없는 번호를 선택하면 “잘못 입력하셨습니다. 다시 입력해주세요.”가  
-//		출력되며 다시 번호를 받고, 선택한 종류에 따라 생성되는 객체가 다름.  
-//		객체 안에 종류와 이름을 저장. 데이터를 저장한 객체와 수량을 fc(FarmController)의  
-//		addNewKind()로 넘기고 전달 받은 반환 값이 true면 “새 농산물이 추가되었습니다.”, 
-//		false면 “새 농산물 추가에 실패하였습니다. 다시 입력해주세요.” 출력 
 	}
 	
 	public void removeKind() {
+		int kind;
+		String name;
+		boolean result = false;
 		
+		while(true) {
+			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
+			kind = sc.nextInt();
+			
+			System.out.print("이름 : ");
+			name = sc.next();
+			
+			switch(kind) {
+			case 1 :
+				result = fc.removeKind(new Fruit("과일", name));
+				break;
+			case 2 :
+				result = fc.removeKind(new Vegetable("채소", name));
+				break;
+			case 3 :
+				result = fc.removeKind(new Nuts("견과", name));
+			default :
+				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+				continue;
+			}
+			
+			if(result) {
+				System.out.println("농산물 삭제에 성공하였습니다.");
+				return;
+			}
+			
+			System.out.println("농산물 삭제에 실패하였습니다. 다시 입력해주세요.");
+		}
 	}
 	
 	public void changeAmount() {
+		int kind, n;
+		String name;
+		boolean result = false;
 		
+		while(true) {
+			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
+			kind = sc.nextInt();
+			
+			System.out.print("이름 : ");
+			name = sc.next();
+			System.out.print("수정할 수량 : ");
+			n = sc.nextInt();
+			
+			switch(kind) {
+			case 1 :
+				result = fc.changeAmount(new Fruit("과일", name), n);
+				break;
+			case 2 :
+				result = fc.changeAmount(new Vegetable("채소", name), n);
+				break;
+			case 3 :
+				result = fc.changeAmount	(new Nuts("견과", name), n);
+			default :
+				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+				continue;
+			}
+			
+			if(result) {
+				System.out.println("농산물 수량이 수정되었습니다.");
+				return;
+			}
+			
+			System.out.println("농산물 수량 수정에 실패하였습니다. 다시 입력해주세요.");
+		}
 	}
 	
 	public void printFarm() {
 		
+		for(Farm f : fc.printFarm().keySet()) {
+			System.out.println(f.getKind() + " : " + f.toString() + "(" + fc.printFarm().get(f) + "개)");
+		}
 	}
 	
 	public void buyFarm() {

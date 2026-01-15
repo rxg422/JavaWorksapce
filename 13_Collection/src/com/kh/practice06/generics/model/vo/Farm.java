@@ -24,7 +24,7 @@ public class Farm {
 
 	@Override
 	public String toString() {
-		return "Farm [kind=" + kind + "]";
+		return kind + " : ";
 	}
 
 	@Override

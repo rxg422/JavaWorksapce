@@ -2,9 +2,12 @@ package com.kh.chap01_URL.part01_basic;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 
@@ -14,7 +17,8 @@ public class NetworkTest {
 		NetworkTest nt = new NetworkTest();
 		
 //		nt.test1();
-		nt.test2();
+//		nt.test2();
+		nt.test3();
 	}
 
 	public void test1() {
@@ -58,9 +62,30 @@ public class NetworkTest {
 		
 		try {
 			URL url = new URL(address);
+			URLConnection conn = url.openConnection();
+			
+			bis = new BufferedInputStream(conn.getInputStream());
+			bos = new BufferedOutputStream(new FileOutputStream("project.png"));
+			
+			int data = 0;
+			while((data = bis.read()) != -1) {
+				bos.write(data);
+			}
 		}
 		catch(MalformedURLException e) {
 			e.printStackTrace();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				bis.close();
+				bos.close();
+			}
+			catch(IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
