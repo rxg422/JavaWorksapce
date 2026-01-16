@@ -97,7 +97,6 @@ public class FarmMenu {
 	public void addNewKind() {
 		int kind, n;
 		String name;
-		boolean result = false;
 		
 		while(true) {
 			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
@@ -108,22 +107,15 @@ public class FarmMenu {
 			System.out.print("수량 : ");
 			n = sc.nextInt();
 			
-			switch(kind) {
-			case 1 :
-				result = fc.addNewKind(new Fruit("과일", name), n);
-				break;
-			case 2 :
-				result = fc.addNewKind(new Vegetable("채소", name), n);
-				break;
-			case 3 :
-				result = fc.addNewKind(new Nuts("견과", name), n);
-				break;
-			default :
+			Farm f;
+			f = createFarm(kind, name);
+			
+			if(f == null) {
 				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 				continue;
 			}
 			
-			if(result) {
+			if(fc.addNewKind(f, n)) {
 				System.out.println("새 농산물이 추가되었습니다.");
 				return;
 			}
@@ -135,7 +127,6 @@ public class FarmMenu {
 	public void removeKind() {
 		int kind;
 		String name;
-		boolean result = false;
 		
 		while(true) {
 			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
@@ -144,22 +135,14 @@ public class FarmMenu {
 			System.out.print("이름 : ");
 			name = sc.next();
 			
-			switch(kind) {
-			case 1 :
-				result = fc.removeKind(new Fruit("과일", name));
-				break;
-			case 2 :
-				result = fc.removeKind(new Vegetable("채소", name));
-				break;
-			case 3 :
-				result = fc.removeKind(new Nuts("견과", name));
-				break;
-			default :
+			Farm f = createFarm(kind, name);
+			
+			if(f == null) {
 				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 				continue;
 			}
 			
-			if(result) {
+			if(fc.removeFarm(f)) {
 				System.out.println("농산물 삭제에 성공하였습니다.");
 				return;
 			}
@@ -171,7 +154,6 @@ public class FarmMenu {
 	public void changeAmount() {
 		int kind, n;
 		String name;
-		boolean result = false;
 		
 		while(true) {
 			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
@@ -182,22 +164,14 @@ public class FarmMenu {
 			System.out.print("수정할 수량 : ");
 			n = sc.nextInt();
 			
-			switch(kind) {
-			case 1 :
-				result = fc.changeAmount(new Fruit("과일", name), n);
-				break;
-			case 2 :
-				result = fc.changeAmount(new Vegetable("채소", name), n);
-				break;
-			case 3 :
-				result = fc.changeAmount	(new Nuts("견과", name), n);
-				break;
-			default :
+			Farm f = createFarm(kind, name);
+			
+			if(f == null) {
 				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 				continue;
 			}
 			
-			if(result) {
+			if(fc.changeAmount(f, n)) {
 				System.out.println("농산물 수량이 수정되었습니다.");
 				return;
 			}
@@ -215,7 +189,6 @@ public class FarmMenu {
 	public void buyFarm() {
 		int kind;
 		String name;
-		boolean result = false;
 		
 		while(true) {
 			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
@@ -224,22 +197,14 @@ public class FarmMenu {
 			System.out.print("이름 : ");
 			name = sc.next();
 			
-			switch(kind) {
-			case 1 :
-				result = fc.buyFarm(new Fruit("과일", name));
-				break;
-			case 2 :
-				result = fc.buyFarm(new Vegetable("채소", name));
-				break;
-			case 3 :
-				result = fc.buyFarm(new Nuts("견과", name));
-				break;
-			default :
+			Farm f = createFarm(kind, name);
+			
+			if(f == null) {
 				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 				continue;
 			}
 			
-			if(result) {
+			if(fc.buyFarm(f)) {
 				System.out.println("구매에 성공하였습니다.");
 				return;
 			}
@@ -251,7 +216,6 @@ public class FarmMenu {
 	public void removeFarm() {
 		int kind;
 		String name;
-		boolean result = false;
 		
 		while(true) {
 			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
@@ -260,22 +224,14 @@ public class FarmMenu {
 			System.out.print("이름 : ");
 			name = sc.next();
 			
-			switch(kind) {
-			case 1 :
-				result = fc.removeFarm(new Fruit("과일", name));
-				break;
-			case 2 :
-				result = fc.removeFarm(new Vegetable("채소", name));
-				break;
-			case 3 :
-				result = fc.removeFarm(new Nuts("견과", name));
-				break;
-			default :
+			Farm f = createFarm(kind, name);
+			
+			if(f == null) {
 				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 				continue;
 			}
 			
-			if(result) {
+			if(fc.removeFarm(f)) {
 				System.out.println("구매 취소에 성공하였습니다.");
 				return;
 			}
@@ -290,6 +246,26 @@ public class FarmMenu {
 		while(iter.hasNext()) {
 			System.out.println(iter.next());
 		}
+	}
+	
+	public Farm createFarm(int kind, String name) {
+		Farm f = new Farm();
+		
+		switch(kind) {
+		case 1 :
+			f = new Fruit("과일", name);
+			break;
+		case 2 :
+			f = new Vegetable("채소", name);
+			break;
+		case 3 :
+			f = new Nuts("견과", name);
+			break;
+		default :
+			return null;
+		}
+		
+		return f;
 	}
 	
 }
