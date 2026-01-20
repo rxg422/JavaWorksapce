@@ -49,7 +49,8 @@ public class StreamPractice {
                                     new Student("김말똥",29, 90),
                                     new Student("아무개",23, 70));
         String[] wordArr = { "a b c d", "홍 길동", "h el lo wor ld" };
-        IntStream dan = IntStream.range(1, 10);
+        IntStream dan = IntStream.range(2, 10);
+//        IntStream num = IntStream.range(1, 10);
         
         
         // 1. list에서 중복을 제거한 후 짝수만 출력하는 프로그램을 만드시오.(스트림활용)
@@ -62,14 +63,15 @@ public class StreamPractice {
         // 2. list에서 중복을 제거한 후 값이 5 이상이면서 홀수를 오름차순 출력 하는 프로그램
         //결과 : 9 11
         System.out.print("2번 결과 : ");
-        list.stream().distinct().filter(i->i>=5&&i%2==1).sorted().forEach(i -> System.out.print(i + " "));
+        list.stream().distinct().filter(i->i>=5&&i%2==1).sorted(Integer::compareTo).forEach(i -> System.out.print(i + " "));
         System.out.println("\n");
         
         
         // 3. list에서 각 요소에 3을 곱한후 오름차순 출력하는 프로그램
         // 3 6 9 9 12 12 18 27 30 33
         System.out.print("3번 결과 : ");
-        list.stream().sorted().forEach(i -> System.out.print(i * 3 + " "));
+//        list.stream().sorted().forEach(i -> System.out.print(i * 3 + " "));
+        list.stream().map(i->i*3).sorted(Integer::compareTo).forEach(i -> System.out.print(i + " "));
         System.out.println("\n");
         
         
@@ -77,13 +79,14 @@ public class StreamPractice {
         //[A, A, B, B, C, C, D, E, F, G]
         System.out.print("4번 결과 : ");
         List<String> strList = strlist.stream().map(str -> str.toUpperCase()).collect(Collectors.toList());
-        System.out.println(strList + "\n");
+        System.out.println(strList + "\n");	
         
         
         // 5. strlist에서 중복값을 제거후 각 문자를 하나의 문자열로 합쳐서 반환해주는 프로그램
         //abcdefg
         System.out.print("5번 결과 : ");
-        String sumStr = strlist.stream().distinct().reduce("", (sumstr, str) -> sumstr + str);
+        String sumStr = strlist.stream().distinct().reduce("", (result, str) -> result + str);
+//        String sumStr = strlist.stream().distinct().collect(Collectors.joining());
         System.out.println(sumStr + "\n");
         
         
@@ -94,17 +97,12 @@ public class StreamPractice {
         slist.stream().sorted((o1, o2) -> o1.name.compareTo(o2.name)).forEach(s -> System.out.print(s.name + " : " + s.age + " "));
         System.out.println("\n");
         
-        
+        // *** 복습 필요 ***
         // 7. slist에서 20살 이상인 학생의 평균점수를 구하는 프로그램
         // 80.0
-        slist.stream().filter(s->s.age>=20).map(s->s.score).reduce(0, (sumscore, studentscore) -> {
-        	return sumscore + studentscore;
-        }).doubleValue();
-        
-//        System.out.print("7번 결과 : ");
-//        System.out.println(score + "\n");
-        
-        
+        System.out.print("7번 결과 : ");
+        Double score = slist.stream().filter(s->s.age>=20).mapToInt(s->s.score).average().getAsDouble();
+        System.out.println(score + "\n");
         
         
         // 8. wordArr내부요소의 공백을 모두 제거한후 List<String>으로 변환하는 프로그램
@@ -120,9 +118,8 @@ public class StreamPractice {
         //          2 * 2 = 4
         System.out.println("9번 결과 : ");
         dan.forEach(d -> {
-        	for(int i=2; i<10; i++) {
-        		System.out.printf("%d*%d=%2d ", i, d, d*i);
-        	}
+        	IntStream num = IntStream.range(1, 10);
+        	num.forEach(n -> System.out.printf("%d*%d=%2d ", d, n, d*n));
         	System.out.println();
         });
         System.out.println();
@@ -131,7 +128,7 @@ public class StreamPractice {
         // 10. wordArr내부요소의 공백을 제거한 문자열의 길이가 8이상인 요소가 있는지 검사하는 프로그램
         // 출력결과 : true/false값
         System.out.print("10번 결과 : ");
-        boolean isTrue = Arrays.stream(wordArr).map(s->s.replaceAll("\\s", "")).anyMatch(s-> s.length()>=8);
+        boolean isTrue = Arrays.stream(wordArr).map(s->s.replaceAll(" ", "")).anyMatch(s-> s.length()>=8);
         System.out.println(isTrue);
     }
 }
